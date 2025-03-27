@@ -42,7 +42,7 @@ def prompt_creds():
 	# For interactive Use
 	global CredSet
 	# Prompt for Password
-	CredSet['password'] = getpass.getpass(prompt="Password for "+CredSet['username']+": ")
+	CredSet['password'] = getpass.getpass(prompt="Password for "+GitHubUser+": ")
 	return True
 
 
