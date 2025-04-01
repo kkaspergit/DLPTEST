@@ -6,11 +6,11 @@ import getpass
 import datetime
 import argparse
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+#from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+#from selenium.webdriver.support.ui import WebDriverWait
+#from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 
 GitHubUser="kkaspergit"
@@ -105,7 +105,6 @@ def create_repo(driver):
 		subButton=driver.find_element(By.ID, ":r5:").submit()
 		time.sleep(3)
 	return retVal
-	
 
 
 def file_upload(driver, file_name):
@@ -139,6 +138,27 @@ def file_upload(driver, file_name):
 	return retVal
 
 
+def check_file(driver, file_name):
+	retVal='NOT FOUND'
+	contFlag=True
+	global RepoUrl
+	if contFlag:
+		driver.get(RepoUrl)
+		checkVal=driver.title
+		if checkVal != RepoSuccessTitle:
+			contFlag=False
+			print('Failure to Navigate to DEST Repo: '+str(checkVal))
+	if contFlag:
+		# Check for the file
+		css_selection="[title*='"+file_name+"']"
+		try:
+			retVal = driver.find_element(By.CSS_SELECTOR, css_selection)
+		except Exception as e:
+			print('Failure to find Repo file listing')
+			print(e)
+	return retVal.get_attribute('title')
+
+
 def get_content():
 	retVal=[]
 	haveFiles=True
@@ -169,15 +189,17 @@ def get_content():
 	return retVal
 
 
+
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser(description="Send Files to dlptest HTTPS POST")
 	parser.add_argument("-f", "--file", help="File with list of files to send", required=True)
-	parser.add_argument("-o", "--output", help="Capture output to file (defaults to dlptest.rpt)", default="dlptest.rpt")
+	parser.add_argument("-o", "--output", help="Capture output to file (defaults to dlptest.rpt)", default="github.rpt")
 	parser.add_argument("-p", "--prompt", action="store_true", default=0, help="Prompt for password")
 	parser.add_argument("-v", "--verbose", action="store_true", default=0, help="Verbose")
 	args = parser.parse_args()
 	cont=True
 	resultLog=[]
+	resultLog.append('"Timestamp","Filename","Uploaded","Found in GitHub"')
 	if args.verbose:
 		print('Retrieving files for HTTP PUTs')
 	testFiles=get_content()
@@ -200,7 +222,8 @@ if __name__ == "__main__":
 			for testFile in testFiles:
 				res2log='"'+str(datetime.datetime.now())+'","'
 				res2log=res2log+str(testFile['filename'])+'","'
-				res2log=res2log+str(file_upload(drv, testFile['filename']))+'"'
+				res2log=res2log+str(file_upload(drv, testFile['filename']))+'","'
+				res2log=res2log+str(check_file(drv,testFile['filename']))+'"'
 				if args.verbose:
 					print(res2log)
 				resultLog.append(res2log)
