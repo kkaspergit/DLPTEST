@@ -1,3 +1,6 @@
 https://edgi-wm-archive.s3.amazonaws.com/
+http://edgi-wm-archive.s3.amazonaws.com/
 https://91c2be992dfb7dcc6256c04eaf0f366c.r2.cloudflarestorage.com/bandwidthsaver/ADCOLOR_FAQs_updated.pdf?X-Amz-Expires=604800&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=035201834c02c6c72d16826fedb6be4e/20250322/auto/s3/aws4_request&X-Amz-Date=20250322T104753Z&X-Amz-SignedHeaders=host&X-Amz-Signature=6a2e46d5a15f9b4b428179a86e83e7ca88b62931ab39c813a3783f8ca23c2f6b
+http://91c2be992dfb7dcc6256c04eaf0f366c.r2.cloudflarestorage.com/bandwidthsaver/ADCOLOR_FAQs_updated.pdf?X-Amz-Expires=604800&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=035201834c02c6c72d16826fedb6be4e/20250322/auto/s3/aws4_request&X-Amz-Date=20250322T104753Z&X-Amz-SignedHeaders=host&X-Amz-Signature=6a2e46d5a15f9b4b428179a86e83e7ca88b62931ab39c813a3783f8ca23c2f6b
 https://rcastoragev2.blob.core.windows.net/
+http://rcastoragev2.blob.core.windows.net/
