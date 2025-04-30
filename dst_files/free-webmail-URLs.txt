@@ -1,3 +1,12 @@
 https://www.dropsend.com/
+http://www.dropsend.com/
 https://api.spaces.hightail.com
+http://api.spaces.hightail.com
 https://mail.zoho.com
+http://mail.zoho.com
+https://mail.google.com
+http://mail.google.com
+https://mail.yahoo.com
+http://mail.yahoo.com
+https://outlook.live.com
+http://outlook.live.com

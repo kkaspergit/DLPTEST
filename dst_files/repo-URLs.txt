@@ -1,5 +1,10 @@
 https://GitHub.com
-Pastebin.com
-Redit
-PrivateBin
-Gist
+http://GitHub.com
+https://pastebin.com/
+http://pastebin.com/
+https://www.reddit.com/
+http://www.reddit.com/
+https://privatebin.net/
+http://privatebin.net/
+https://gist.github.com/
+http://gist.github.com/
